@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-async';
+  personajes = [];
+
+  cargarDatos() {
+    console.log('Se cargaron los datos')
+
+    fetch('https://rickandmortyapi.com/api/character')
+      .then((response) => {
+        return response.json()
+      })
+      .then((characters) => {
+        this.personajes = characters.results
+        console.log(this.personajes)
+      })
+      .catch((error) => {
+          console.error('Error: ', error)
+      })
+
+    console.log('Despues de la consulta')
+  }
 }
