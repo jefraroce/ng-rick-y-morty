@@ -9,8 +9,6 @@ export class AppComponent {
   personajes = [];
 
   cargarDatos() {
-    console.log('Se cargaron los datos')
-
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => {
         return response.json()
@@ -22,7 +20,5 @@ export class AppComponent {
       .catch((error) => {
           console.error('Error: ', error)
       })
-
-    console.log('Despues de la consulta')
   }
 }
